@@ -7,12 +7,10 @@ from django.shortcuts import render
 
 
 def index(request):
-    u = User.objects.get(username="Adel")
-    print(u.check_password(""))
     return render(request, "index.html")
 
 
-def login(request):
+def user_login(request):
     if request.method == "GET":
         return render(request, "login.html")
     
@@ -20,18 +18,11 @@ def login(request):
         Email = request.POST.get('email')
         Password = request.POST.get('password')
 
-        user = authenticate(email="", password="")
-        print(user)
+        user = authenticate(email="A", password="banaan455")
         if user:
-            # User klopt, wordt ingelogd
-            login(request, user)
-            print(user.username)
+            user_login(request, user)
             render(request, "index.html")
-            # return JsonResponse({"message": "Student logged in successfully", "username": user.username})
         else:
-            # Invalide login
-            # return JsonResponse({"message": "Invalid username or password"}, status=400)
-            print("Invalid username or password")
             return render(request, "index.html")
         
     return render(request, "index.html")
