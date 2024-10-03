@@ -13,7 +13,9 @@
 
     <div class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
         <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Inloggen</h2>
-        <form action="#" method="POST">
+
+        <form id="loginForm" method="POST">
+            {% csrf_token %}
             <div class="mb-4">
                 <label for="email" class="block text-gray-700">Gebruikersnaam</label>
                 <input type="email" id="email" name="email" required class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="gebruikersnaam@gmail.com">
@@ -22,13 +24,59 @@
                 <label for="password" class="block text-gray-700">Wachtwoord</label>
                 <input type="password" id="password" name="password" required class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Wachtwoord">
             </div>
-            <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg transition duration-200">Inloggen</button>
+            <button type="button" id="loginButton" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg transition duration-200">Inloggen</button>
         </form>
+        
+        <!-- Notification -->
+        <div id="notification" class="hidden mt-4 p-2 text-red-600 bg-red-200 rounded-lg text-center">
+            Ongeldige gebruikersnaam of wachtwoord.
+        </div>
+        
         <div class="mt-4 text-center">
             <a href="#" class="text-purple-600 hover:underline">Wachtwoord vergeten?</a>
         </div>
     </div>
 
+    <!-- Javascript -->
+    <script>
+        document.getElementById('loginButton').addEventListener('click', function() {
+            const username = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Simulate a POST request to the server
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: username, password: password }),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Login failed'); // Handle error response
+                }
+                return response.json(); // Assuming server responds with JSON
+            })
+            .then(data => {
+                if (data.success) {
+                    alert('Inloggen succesvol!'); // Handle successful login
+                } else {
+                    showNotification(); // Handle failed login
+                }
+            })
+            .catch(error => {
+                showNotification(); // Show notification on error
+            });
+        });
+
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            notification.classList.remove('hidden');
+            setTimeout(() => {
+                notification.classList.add('hidden'); // Verberg de notificatie na 3 seconden
+            }, 3000);
+        }
+    </script>
 </body>
 </html>
 
