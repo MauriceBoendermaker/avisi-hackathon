@@ -1,8 +1,7 @@
-from django.contrib.auth.models import User
+
 from django.db import models
+from django.contrib.auth.models import User
 
-
-# Model voor beheerders
 class Beheerder(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     profile_image = models.ImageField(upload_to='')
@@ -57,4 +56,4 @@ class Verantwoording(models.Model):
     feedback_3_niveaus = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.owner.username
+        return self.name
