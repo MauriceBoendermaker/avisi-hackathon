@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     'django_browser_reload',
+    "learning_tools",
 ]
 
 TAILWIND_APP_NAME = 'theme'
