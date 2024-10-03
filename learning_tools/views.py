@@ -1,8 +1,12 @@
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 import json
 from django.contrib.auth import authenticate
+=======
+from django.contrib.auth import authenticate, login
+>>>>>>> Stashed changes
 from django.contrib.auth.models import User
 from django.views.decorators.http import require_POST
 from django.views.decorators.http import require_GET
@@ -24,11 +28,11 @@ def index(request):
     return render(request, "test.html" )
 =======
     u = User.objects.get(username="Adel")
-    print(u.check_password(""))
+    print(u.check_password("anirtaziri19"))
     return render(request, "index.html")
 
 
-def login(request):
+def user_login(request):
     if request.method == "GET":
         return render(request, "login.html")
     
@@ -36,12 +40,10 @@ def login(request):
         Email = request.POST.get('email')
         Password = request.POST.get('password')
 
-        user = authenticate(email="", password="")
-        print(user)
+        user = authenticate(username="Adel", password="anirtaziri19")
         if user:
             # User klopt, wordt ingelogd
             login(request, user)
-            print(user.username)
             render(request, "index.html")
             # return JsonResponse({"message": "Student logged in successfully", "username": user.username})
         else:
