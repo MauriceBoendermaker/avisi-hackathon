@@ -1,7 +1,123 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div>
-        
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-200">
+
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="bg-gray-900 w-64 flex flex-col">
+            <div class="p-4">
+                <h1 class="text-2xl font-bold text-white">Dashboard</h1>
+            </div>
+            <nav class="mt-4 flex-grow">
+                <ul>
+                    <li class="hover:bg-blue-700 transition duration-200">
+                        <a href="#" class="block text-white text-lg mx-2 my-1 px-4 py-2">Overzicht</a>
+                    </li>
+                    <li class="hover:bg-blue-700 transition duration-200">
+                        <a href="#" class="block text-white text-lg mx-2 my-1 px-4 py-2">Notificaties</a>
+                    </li>
+                    <li class="hover:bg-blue-700 transition duration-200">
+                        <a href="#" class="block text-white text-lg mx-2 my-1 px-4 py-2">Profiel</a>
+                    </li>
+                    <!-- Dynamische opties op basis van rol -->
+                    <li class="hover:bg-blue-700 transition duration-200">
+                        <a href="#" class="block text-white text-lg mx-2 my-1 px-4 py-2">Studenten Beheren</a>
+                    </li>
+                    <li class="hover:bg-blue-700 transition duration-200">
+                        <a href="#" class="block text-white text-lg mx-2 my-1 px-4 py-2">Rapportages</a>
+                    </li>
+                    <li class="hover:bg-blue-700 transition duration-200">
+                        <a href="#" class="block text-white text-lg mx-2 my-1 px-4 py-2">Instellingen</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="p-4">
+                <button class="bg-gray-600 hover:bg-gray-700 text-white font-semibold px-5 py-3 rounded transition duration-200 w-full">Docent</button>
+                <button class="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded transition duration-200 mt-4 w-full">Uitloggen</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Welkom, [API Endpoint]</h2>
+
+            <!-- Notificaties sectie -->
+            <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+                <h3 class="font-semibold text-lg text-gray-800 border-b pb-2">Notificaties</h3>
+                <ul class="space-y-2">
+                    <li class="bg-gray-100 p-3 rounded shadow-md">Nieuwe feedback van [Docent]</li>
+                    <li class="bg-gray-100 p-3 rounded shadow-md">Deadline voor project: [Datum]</li>
+                    <li class="bg-gray-100 p-3 rounded shadow-md">Vergadering gepland op [Datum]</li>
+                    <li class="bg-gray-100 p-3 rounded shadow-md">Nieuwe cursusmaterialen beschikbaar</li>
+                </ul>
+            </div>
+
+            <!-- Studenten Overzicht sectie -->
+            <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+                <h3 class="font-semibold text-lg text-gray-800 border-b pb-2">Studenten Overzicht</h3>
+                <p class="text-gray-600">Aantal studenten: <span class="font-bold">[Aantal]</span></p>
+                <p class="text-gray-600">Gemiddelde beoordeling: <span class="font-bold">[Gemiddeld]</span></p>
+                <div class="mt-4">
+                    <h4 class="font-semibold text-md text-gray-800">Overzicht van prestaties per periode:</h4>
+                    <div class="flex justify-between mt-2">
+                        <div class="w-1/4 text-center">
+                            <div class="bg-gray-300 rounded-full h-3 mb-2" style="width: 75%;"></div>
+                            <span class="text-gray-500">Periode 1</span>
+                        </div>
+                        <div class="w-1/4 text-center">
+                            <div class="bg-gray-300 rounded-full h-3 mb-2" style="width: 60%;"></div>
+                            <span class="text-gray-500">Periode 2</span>
+                        </div>
+                        <div class="w-1/4 text-center">
+                            <div class="bg-gray-300 rounded-full h-3 mb-2" style="width: 90%;"></div>
+                            <span class="text-gray-500">Periode 3</span>
+                        </div>
+                        <div class="w-1/4 text-center">
+                            <div class="bg-gray-300 rounded-full h-3 mb-2" style="width: 50%;"></div>
+                            <span class="text-gray-500">Periode 4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progressie Timeline -->
+            <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+                <h3 class="font-semibold text-lg text-gray-800 border-b pb-2">Progressie Timeline</h3>
+                <div class="relative">
+                    <div class="absolute left-0 top-0 w-full h-full border-l-2 border-gray-300"></div>
+                    <div class="flex justify-between mt-4">
+                        <div class="flex flex-col items-center">
+                            <div class="bg-blue-500 h-5 w-5 rounded-full"></div>
+                            <span class="text-gray-600 text-sm">Periode 1</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="bg-blue-500 h-5 w-5 rounded-full"></div>
+                            <span class="text-gray-600 text-sm">Periode 2</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="bg-blue-500 h-5 w-5 rounded-full"></div>
+                            <span class="text-gray-600 text-sm">Periode 3</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="bg-blue-500 h-5 w-5 rounded-full"></div>
+                            <span class="text-gray-600 text-sm">Periode 4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+</body>
+</html>
+
 {% endblock %}
