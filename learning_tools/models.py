@@ -1,13 +1,7 @@
-<<<<<<< Updated upstream
-=======
-# Models for learning_tool
-
->>>>>>> Stashed changes
+from django.contrib.auth.models import User
 from django.db import models
 
-<<<<<<< Updated upstream
-# Create your models here.
-=======
+
 # Model voor beheerders
 class Beheerder(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -64,4 +58,3 @@ class Verantwoording(models.Model):
 
     def __str__(self):
         return self.owner.username
->>>>>>> Stashed changes
