@@ -19,13 +19,12 @@
             <div class="mb-4">
                 <label for="email" class="block text-gray-700">Gebruikersnaam</label>
                 <input id="email" name="email" required class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="gebruikersnaam@gmail.com">
-
             </div>
             <div class="mb-4">
                 <label for="password" class="block text-gray-700">Wachtwoord</label>
                 <input type="password" id="password" name="password" required class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Wachtwoord">
             </div>
-            <button type="button" id="loginButton" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg transition duration-200">Inloggen</button>
+            <button type="submit" id="loginButton" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg transition duration-200">Inloggen</button>
         </form>
         
         <!-- Notification -->
@@ -40,9 +39,9 @@
 
     <!-- Javascript -->
     <script>
-        document.getElementById('loginButton').addEventListener('click', function() {
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+        // document.getElementById('loginButton').addEventListener('click', function() {
+        //     const email = document.getElementById('email').value;
+        //     const password = document.getElementById('password').value;
 
         //     // Simulate a POST request to the server
         //     fetch('/login', {

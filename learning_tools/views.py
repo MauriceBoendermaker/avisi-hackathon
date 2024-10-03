@@ -1,12 +1,11 @@
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
-from django.views.decorators.http import require_POST
-from django.views.decorators.http import require_GET
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 
 def index(request):
+    print(request.user)
     return render(request, "index.html")
 
 
@@ -15,21 +14,19 @@ def user_login(request):
         return render(request, "login.html")
     
     elif request.method == "POST":
+        print("yes")
         Email = request.POST.get('email')
         Password = request.POST.get('password')
 
-        user = authenticate(email="A", password="banaan455")
+        user = authenticate(username="A", password="banaan455")
         if user:
-            user_login(request, user)
-            render(request, "index.html")
+            login(request, user)
+            redirect("index.html")
         else:
             return render(request, "index.html")
         
     return render(request, "index.html")
 
 
-@require_POST
 def logout(request):
-    # Logic for logging out
-    return JsonResponse({"message": "Logged out successfully"})
-
+    pass
