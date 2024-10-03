@@ -26,4 +26,4 @@ venv.bak/
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 
-idea/
+.idea/
