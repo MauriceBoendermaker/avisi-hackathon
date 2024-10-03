@@ -1,5 +1,35 @@
 {% extends 'base.html' %}
 
 {% block content %}
- <h1>html goes here</h1>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inloggen</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Inloggen</h2>
+        <form action="#" method="POST">
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700">Gebruikersnaam</label>
+                <input type="email" id="email" name="email" required class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="gebruikersnaam@gmail.com">
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-gray-700">Wachtwoord</label>
+                <input type="password" id="password" name="password" required class="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Wachtwoord">
+            </div>
+            <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg transition duration-200">Inloggen</button>
+        </form>
+        <div class="mt-4 text-center">
+            <a href="#" class="text-purple-600 hover:underline">Wachtwoord vergeten?</a>
+        </div>
+    </div>
+
+</body>
+</html>
+
 {% endblock %}
