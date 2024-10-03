@@ -39,8 +39,10 @@ class Student(models.Model):
     
 
 class Werkprocess(models.Model):
+    pass
 
 class Criterium(models.Model):
+    pass
 
 class Verantwoording(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
