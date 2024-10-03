@@ -28,3 +28,4 @@ venv.bak/
 
 .idea/
 *.pyc
+avisi/__pycache__/settings.cpython-312.pyc
