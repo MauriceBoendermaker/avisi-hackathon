@@ -12,21 +12,22 @@ def index(request):
 def user_login(request):
     if request.method == "GET":
         return render(request, "login.html")
-    
+
     elif request.method == "POST":
         print("yes")
-        Email = request.POST.get('email')
-        Password = request.POST.get('password')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
 
-        user = authenticate(username="A", password="banaan455")
+        user = authenticate(username="admin", password="admin123")
         if user:
             login(request, user)
-            redirect("index.html")
+            redirect("/index")
         else:
             return render(request, "index.html")
-        
+
     return render(request, "index.html")
 
 
 def logout(request):
-    pass
+    if request.method == "GET":
+        return render(request, "login.html")
